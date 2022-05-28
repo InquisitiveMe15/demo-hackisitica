@@ -4,6 +4,9 @@ from edamam import recipe_search
 # create an instance of the Flask class
 # name is the place holder for current module, here is app.py
 app = Flask(__name__)
+app.config.from_object('config')
+app_id = app.config["APP_ID"]
+app_key = app.config["APP_KEY"]
 
 
 # use the route decorator to tell Flask what URL should trigger our function.
@@ -17,7 +20,7 @@ def show_recipe():
     ingredient = request.args.get('ingredient')
     health = request.args.get('health')
     preference = request.args.get('preference')
-    hits = recipe_search(ingredient, health, preference)
+    hits = recipe_search(ingredient, health, preference,app_id,app_key)
     # set second argument to pass the data
     return render_template('recipe.html', hits=hits)
 

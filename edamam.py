@@ -2,13 +2,20 @@ import requests
 import os
 
 
-def recipe_search(ingredient, health, preference):
-    # API information
-    app_id = os.environ['APP_ID']
-    app_key = os.environ['APP_KEY']
+
+
+def recipe_search(ingredient, health, preference,app_id,app_key):
+    
     
     # basic request
     request = f'https://api.edamam.com/search?q={ingredient}&app_id={app_id}&app_key={app_key}'
+
+    # # API information
+    # app_id = os.environ['APP_ID']
+    # app_key = os.environ['APP_KEY']
+    
+    # # basic request
+    # request = f'https://api.edamam.com/search?q={ingredient}&app_id={app_id}&app_key={app_key}'
 
     if health == 'all':
         pass  # do nothing
